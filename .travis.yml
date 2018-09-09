@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before-install:
+  - docker build -t mhsundar/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run mhsundar/docker-react npm run test -- --coverage
